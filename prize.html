@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>抽奖程序</title> 
+
+<script language="javascript">   
+var   alldata   =   "吴鑫,雷毅,付琦, 任东秀, 陈晖,权梁锋,赵锦江, 刘跃, 合敏慈, 张静, 汪若愚, 刘佳, 潘魏增, 张振楠, 貘, 赵慧, 张博, 武杰, 马立铭, 段文龙, 李蒙, 刘进, 吴铭铭, 周惠玲, 木小乐, 唐琪, 黄昊,张璇,贺转, 史明华, 李金慧, 石建刚, 刘艳宾, 李鑫, 黄英婷, kongxiantao, 蔺汝波, 白冰, 夏姣姣, 尚春, 秦广东, 吕婷, 董瑞弋, 小贝";  //在本行修改吃饭地点 
+var   alldataarr   =   alldata.split(/,\s*/i)
+var   num   =   alldataarr.length-1   
+var   timer   
+function   change(){   
+  document.getElementById("oknum").value   =   alldataarr[GetRnd(0,num)];   
+  }   
+function   start(){   
+  clearInterval(timer);   
+  timer   =   setInterval('change()',30); 
+  }   
+function   ok(){   
+  clearInterval(timer);   
+  }   
+function   GetRnd(min,max){   
+  return   parseInt(Math.random()*(max-min+1));   
+  }   
+document.onkeydown=key
+function key(e) {
+var e=e||event;
+if (e.keyCode==83) start();
+if (e.keyCode==79) ok();
+}
+</script>  
+<style> 
+.button { -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.1); -moz-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.1); box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.1); -webkit-transition: all 0.1s ease; -moz-transition: all 0.1s ease; -o-transition: all 0.1s ease; font-family: "myriad-pro-1","myriad-pro-2"; line-height: 1.4; background-color: #49a7f3; display: inline-block; padding: 12px 20px; -webkit-border-radius: 12px; -moz-border-radius: 12px; border-radius: 12px; color: white; text-decoration: none; border: none; font-size: 22px; font-weight: bold; outline:0;}
+.button:hover { background-color: #82c7ff;outline:0; cursor: pointer}
+.button:active { -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6); -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6); box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.6);outline:0;}
+.choose { background-color: #41d05f; padding:8px 16px;width:230px;}
+.choose:hover { background-color: #41d05f; cursor: help}
+button::-moz-focus-inner{border-color:transparent!important;}
+span{font-size:12px; float:right; color:#333;font-family:Verdana, Arial, Helvetica, sans-serif;}
+span a{color:#333;text-decoration: none;}
+</style> 
+</head> 
+ 
+<body> 
+ 
+ 
+<p> 
+<input   type="text"   id="oknum"   name="oknum"   value="获奖人？" class="button choose"> 
+</p> 
+<p> 
+<button   onclick="start()"   accesskey="s" class="button">开始抽奖(<U>S</U>)</button> <button   onclick="ok()"   accesskey="o" class="button">停(<U>O</U>)</button> 
+</p> 
+<span>code by <a href="">W3CTECH</a></span> 
+</body> 
+</html>
